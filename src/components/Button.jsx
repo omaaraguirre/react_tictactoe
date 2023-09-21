@@ -1,9 +1,14 @@
-const Button = ({ children, click }) => {
+import useBoard from '../hooks/useBoard'
+
+const Button = () => {
+  const { restartBoard } = useBoard()
+
   return (
     <button
-      className='btn btn-primary bg-gray-900 text-white border py-2 px-4 rounded-3xl hover:bg-blue-700 transition-colors duration-300 font-bold'
-      onClick={() => click()}
-    >{children}
+      className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300'
+      onClick={restartBoard}
+    >
+      Restart
     </button>
   )
 }
