@@ -1,15 +1,18 @@
+import { createContext, useState } from 'react'
 import PropTypes from 'prop-types'
 import { TURNS } from '../utils/config'
-import { createContext, useState } from 'react'
 
 export const BoardContext = createContext()
 
 const BoardProvider = ({ children }) => {
   const [board, setBoard] = useState(() =>
-    JSON.parse(localStorage.getItem('board')) ?? Array(9).fill(null)
+    JSON.parse(window.localStorage.getItem('board')) ?? Array(9).fill(null)
   )
   const [turn, setTurn] = useState(() =>
-    JSON.parse(localStorage.getItem('turn')) ?? TURNS.x
+    JSON.parse(window.localStorage.getItem('turn')) ?? TURNS.x
+  )
+  const [muted, setMuted] = useState(() =>
+    JSON.parse(window.localStorage.getItem('muted')) ?? false
   )
   const [winner, setWinner] = useState(null)
 
@@ -20,8 +23,11 @@ const BoardProvider = ({ children }) => {
       turn,
       setTurn,
       winner,
-      setWinner
-    }}>
+      setWinner,
+      muted,
+      setMuted
+    }}
+    >
       {children}
     </BoardContext.Provider>
   )

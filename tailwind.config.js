@@ -5,7 +5,11 @@ export default {
     './src/**/*.jsx'
   ],
   theme: {
-    extend: {}
+    extend: {
+      fontFamily: {
+        orbitron: ['Orbitron Variable', 'sans-serif']
+      }
+    }
   },
   plugins: []
 }

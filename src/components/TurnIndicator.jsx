@@ -1,6 +1,6 @@
 import useBoard from '../hooks/useBoard'
-import Square from './Square'
 import { TURNS } from '../utils/config'
+import Square from './Square'
 
 const TurnIndicator = () => {
   const { turn } = useBoard()
